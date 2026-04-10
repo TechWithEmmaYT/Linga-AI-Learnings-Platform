@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "krx7nxt3.us-east.insforge.app",
+      }
+    ]
+  },
 };
 
 export default nextConfig;
