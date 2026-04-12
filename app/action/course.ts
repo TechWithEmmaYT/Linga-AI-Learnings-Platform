@@ -263,4 +263,53 @@ export async function getLeaderboard(limit = 10) {
   });
 }
 
+export async function getCurrentLevel() {
+  return asyncHandler(async () => {
+    const { insforge, userId } = await getInsforgeServerClient();
 
+    const userProgress = await getUserProgress();
+    if (!userProgress || !userProgress.active_level_id) {
+      return null;
+    }
+
+    const [levelRes, courseRes, sessionRes, subscription] = await Promise.all([
+      insforge.database
+        .from("levels")
+        .select("*")
+        .eq("id", userProgress.active_level_id)
+        .single(),
+      insforge.database
+        .from("courses")
+        .select("title, lang")
+        .eq("id", userProgress.active_course_id)
+        .single(),
+      insforge.database
+        .from("voice_sessions")
+        .select("id")
+        .eq("user_id", userId)
+        .eq("level_id", userProgress.active_level_id)
+        .eq("completed", false)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+      getUserSubscription()
+    ]);
+
+    const level = levelRes.data;
+    const course = courseRes.data;
+    const session = sessionRes.data;
+    const isPro = subscription?.isPro || false;
+
+    if (!level || (level.level_number > FREE_LEVELS && !isPro)) {
+      return null;
+    }
+
+    return {
+      level,
+      language: course?.title,
+      lang: course?.lang,
+      sessionId: session?.id,
+      userId
+    };
+  }, { fallbackError: null });
+}

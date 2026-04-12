@@ -41,7 +41,6 @@ export const LevelPopover = ({
   children,
 }: LevelPopoverProps) => {
   const getButtonText = () => {
-    if (isPending) return <Spinner className="h-4 w-4" />;
     if (isProLocked && !current) return "Upgrade to Pro";
     if (locked && !current) return "Locked";
     if (isCompleted) return `Retake +${XP_TOTAL_COMPLETE} XP`;
