@@ -1,37 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Linga.ai – AI Voice Language LMS
 
-## Getting Started
+> ### Commercial License Required
+>
+> This project is **Free for Personal Use**. A commercial license is **required** for any use of the code (in part or whole) for SaaS, client work, or production apps.
+>
+> 👉 **[Get Commercial License](https://techwithemma.gumroad.com/)**
+> 👉 **[Read License Terms](https://github.com/TechWithEmmaYT/TECHWITHEMMA-LICENSE.md)**
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ❤️ Support the Channel
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If this project helps you, you can support my work by:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* 🟢 [Try Insforge](https://insforge.dev/?utm_source=techwithemma)
+* ☕ [Buy Me a Coffee](https://dub.sh/buy-me-coffee)
+* 🎥 [Subscribe on YouTube](https://tinyurl.com/subcribe-to-techwithEmma)
+* 🌟 Star this repository
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Watch the Full Build on YouTube
 
-To learn more about Next.js, take a look at the following resources:
+> In this video, you’ll build **Linga.ai**, an AI Voice Language Learning Platform where users can practice languages by speaking with a real-time AI voice agent that responds with native accents and provides pronunciation feedback.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+👉 [Watch the Full Tutorial](https://www.youtube.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🗝️ Key Features 👇
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* 🔐 Authentication with **Insforge**
+* 🌍 Multi-language courses (Spanish, Hindi, French)
+* 🎮 Gamified level-based learning system (XP, levels)
+* 🤖 Real-time AI Voice Language Agent with native accents
+* 📊 Progress tracking & leaderboards
+* 🧾 Voice sessions & scoring
+* 💎 Free/Pro subscriptions
+* ⚡ Built with **Next.js 16, React 19, TypeScript, Insforge, Vapi**
+* 🎨 Styled with **Tailwind CSS + shadcn/ui**
+* 🚀 Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# Linga-AI-Learnings-Platform
+---
+
+## Getting Started / Running the Code
+
+1. **Sign up on Insforge:**
+   👉 [https://insforge.dev/?utm_source=techwithemma](https://insforge.dev/?utm_source=techwithemma)
+2. Create a **project** and connect it to your app.
+3. Go to **Settings** → copy your `BASE_URL` & `API_KEY` → add them to your `.env` file.
+4. Configure required services (Auth, Database, Storage).
+5. Run your development server:
+
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+---
+
+## License Information
+
+Commercial use requires a paid license.
+👉 [https://techwithemma.gumroad.com/](https://techwithemma.gumroad.com/)
+
+For full license details, see `TECHWITHEMMA-LICENSE.md`
+
+---
+
+## 📺 Subscribe for More Projects
+
+I build real-world SaaS, AI agents, and production-grade systems.
+
+🔔 Subscribe here:
+👉 [https://tinyurl.com/subcribe-to-techwithEmma](https://tinyurl.com/subcribe-to-techwithEmma)
