@@ -108,7 +108,6 @@ const VoiceSession = ({
         console.log("Tool calls", message)
         message.toolCallList?.forEach((toolCall: any) => {
           // const callId = toolCall.id
-
           const name = toolCall.function?.name;
           const args = typeof toolCall.function?.arguments === "string"
             ? JSON.parse(toolCall.function.arguments)
@@ -138,6 +137,12 @@ const VoiceSession = ({
 
     const handleError = (error: any) => {
       console.error('Vapi error:', error);
+      const errorString = JSON.stringify(error || "")
+      if (errorString.includes('ejected') || errorString.includes('ended')) {
+        setStatus("idle")
+        setIsSpeaking(false)
+      }
+
     }
 
     // Event listeners
@@ -175,7 +180,7 @@ const VoiceSession = ({
     hindi: "hi-IN-SwaraNeural",
     chinese: "zh-CN-XiaoxiaoNeural",
     german: "de-DE-KatjaNeural",
-    french: "fr-FR-VivienneNeural", // Improved from DeniseNeural
+    french: "fr-FR-DeniseNeural",
     portuguese: "pt-PT-RaquelNeural",
     italian: "it-IT-ElsaNeural",
     japanese: "ja-JP-NanamiNeural",
@@ -199,34 +204,40 @@ const VoiceSession = ({
 
   const startSession = async () => {
     if (!vapi) return;
-    setStatus("connecting");
-    setMessages([]);
-    await vapi.start(
-      process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID,
-      {
-        voice: {
-          provider: "azure",
-          voiceId: voiceId,
-        },
-        transcriber: {
-          provider: "deepgram",
-          model: "nova-2",
-          language: (lang === "en" ? "en-US" : lang) as any,
-        },
-        variableValues: {
-          language,
-          level_number: level.level_number,
-          title: level.title,
-          purpose: level.purpose,
-          total_exercises: TOTAL_EXERCISES
-        },
-        metadata: {
-          userId: String(userId),
-          sessionId: String(sessionId),
-          levelId: String(level.id)
-        },
-      }
-    )
+    try {
+      setStatus("connecting");
+      setMessages([]);
+      await vapi.start(
+        process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID,
+        {
+          voice: {
+            provider: "azure",
+            voiceId: voiceId,
+          },
+          transcriber: {
+            provider: "deepgram",
+            model: "nova-2",
+            language: "multi"
+          },
+          variableValues: {
+            language,
+            level_number: level.level_number,
+            title: level.title,
+            purpose: level.purpose,
+            total_exercises: TOTAL_EXERCISES
+          },
+          metadata: {
+            userId: String(userId),
+            sessionId: String(sessionId),
+            levelId: String(level.id)
+          },
+        }
+      )
+    } catch (error) {
+      console.error("Failed to start session:", error)
+      setStatus("idle")
+      toast.error("Failed to start voice session")
+    }
   }
 
   const endSession = () => {
