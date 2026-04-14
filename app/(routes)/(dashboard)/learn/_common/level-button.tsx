@@ -62,7 +62,7 @@ export const LevelButton = ({
       router.push("/level");
     },
     onError: () => {
-      toast.error("Something went wrong.");
+      toast.error("Something went wrong, Try again");
     }
   })
   const handleStartClick = () => {
