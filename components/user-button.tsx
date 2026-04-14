@@ -14,7 +14,7 @@ import { useAuth } from "@/components/auth-provider";
 import { Spinner } from './ui/spinner'
 
 export function UserButton() {
-  const { user, signOut, isLoaded, isFetching  } = useAuth();
+  const { user, signOut, isLoaded  } = useAuth();
   // const router = useRouter();
 
    if (!isLoaded) {
