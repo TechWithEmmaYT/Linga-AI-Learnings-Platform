@@ -33,19 +33,17 @@ export const FeedLevels = () => {
   return (
     <div className="relative flex-1 pt-1 pb-10">
 
-
-
       <div className="relative flex w-full items-center justify-between rounded-2xl bg-primary p-5 text-primary-foreground shadow-sm border-black/10 transition-all">
 
         <div className="flex flex-col gap-y-1.5">
-          <div className="flex items-center gap-x-6">
+          <div className="flex items-center gap-x-3">
             {isLoading ? (
               <Skeleton className="h-4 w-24 bg-white/20 rounded-lg" />
             ) : (
               <>
                 <Link href="/courses">
                   <Button size="icon" variant="ghost" className="text-white! hover:bg-white/20">
-                    <ArrowLeft className="h-5 w-5 mr-2" />
+                    <ArrowLeft className="h-5 w-5" />
                   </Button>
                 </Link>
                 <div className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
