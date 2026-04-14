@@ -13,10 +13,20 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuth } from "@/components/auth-provider";
 
 export function UserButton() {
-  const { user, signOut } = useAuth();
+  const { user, signOut, isLoaded, isFetching  } = useAuth();
   // const router = useRouter();
 
+   if (!isLoaded || isFetching) {
+    return (
+      <div className="flex items-center gap-2">
+        <div className="h-8 w-8 rounded-full bg-gray-200 animate-pulse" />
+      </div>
+    );
+  }
+
   if (!user) return null;
+
+  
 
   const handleSignOut = async () => {
     await signOut();
