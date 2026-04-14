@@ -11,12 +11,12 @@ import { Label } from '@/components/ui/label';
 import Logo from '@/components/logo';
 import { toast } from 'sonner';
 import { Spinner } from '@/components/ui/spinner';
-// import { useAuth } from '@/components/auth-provider';
+import { useAuth } from '@/components/auth-provider';
 
 function SignUpForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  //const { refreshUser } = useAuth();
+  const { refreshUser } = useAuth();
 
   const isVerifyMode = searchParams.get('verify') === 'true';
   const urlEmail = searchParams.get('email') || '';
@@ -59,7 +59,7 @@ function SignUpForm() {
 
     if (success) {
       toast.success('Email verified successfully! Welcome.');
-      // await refreshUser();
+      refreshUser();
       router.push('/courses');
     }
   };

@@ -11,10 +11,12 @@ import { Label } from '@/components/ui/label';
 import Logo from '@/components/logo';
 import { toast } from 'sonner';
 import { Spinner } from '@/components/ui/spinner';
+import { useAuth } from '@/components/auth-provider';
 
 function SignInForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
+   const { refreshUser } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -32,6 +34,7 @@ function SignInForm() {
 
     if (success) {
       toast.success('Signed in successfully');
+      refreshUser(); 
       const redirect = searchParams.get('redirect') || '/learn';
       router.push(redirect);
     }

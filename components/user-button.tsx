@@ -11,15 +11,16 @@ import {
 import { LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuth } from "@/components/auth-provider";
+import { Spinner } from './ui/spinner'
 
 export function UserButton() {
   const { user, signOut, isLoaded, isFetching  } = useAuth();
   // const router = useRouter();
 
-   if (!isLoaded || isFetching) {
+   if (!isLoaded) {
     return (
       <div className="flex items-center gap-2">
-        <div className="h-8 w-8 rounded-full bg-gray-200 animate-pulse" />
+         <Spinner className="size-5" />
       </div>
     );
   }

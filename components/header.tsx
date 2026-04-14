@@ -9,9 +9,9 @@ import { UserButton } from './user-button'
 import Link from 'next/link'
 
 const Header = () => {
-  const { isLoaded, isFetching, isSignedIn } = useAuth()
+  const { isLoaded, isSignedIn } = useAuth()
 
-  if (isFetching) {
+  if (!isLoaded) {
     return (
       <header className={cn("h-16 w-full border-b-2 border-border px-4")}>
         <div className="mx-auto flex h-full items-center justify-between lg:max-w-screen-lg">
