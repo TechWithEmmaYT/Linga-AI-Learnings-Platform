@@ -4,12 +4,11 @@ import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getCurrentCourse } from '@/app/action/course';
 import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { LevelButton } from './level-button';
 import { SuperModal } from './super-modal';
+import { useRouter } from 'next/navigation';
 
 const getDifficulty = (levelNumber: number) => {
   if (levelNumber <= 3) return "Beginner";
@@ -18,6 +17,7 @@ const getDifficulty = (levelNumber: number) => {
 };
 
 export const FeedLevels = () => {
+  const router = useRouter()
   const [isProModalOpen, setIsProModalOpen] = useState(false);
 
   const { data: courseData, isLoading } = useQuery({
@@ -43,12 +43,9 @@ export const FeedLevels = () => {
               <Skeleton className="h-4 w-24 bg-white/20 rounded-lg" />
             ) : (
               <>
-                <Link href="/courses">
-                  <Button size="icon" variant="ghost" className="text-white hover:bg-white/20">
-                    <ArrowLeft className="h-5 w-5 mr-2" />
-                    Back
-                  </Button>
-                </Link>
+                <button className="cursor-pointer" onClick={() => router.push("/courses")}>
+                  <ArrowLeft className="h-4 w-4 stroke-3 text-white" />
+                </button>
                 <div className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   {`${difficulty} · Level ${currentLevel?.level_number ?? 1} - ${levels.length}`}
                 </div>
