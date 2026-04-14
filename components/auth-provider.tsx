@@ -15,6 +15,7 @@ type User = {
 interface AuthContextType {
   user: User | null;
   isLoaded: boolean;
+  isFetching: boolean;
   isSignedIn: boolean;
   signOut: () => Promise<void>;
   refreshUser: () => void;
@@ -30,7 +31,7 @@ export function AuthProvider({ children }: {
   const router = useRouter()
   const queryClient = useQueryClient()
 
-  const { data: user = null, isLoading } = useQuery({
+  const { data: user = null, isLoading, isFetching } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
       const result = await getCurrentUser();
@@ -61,6 +62,7 @@ export function AuthProvider({ children }: {
         user,
         isLoaded: !isLoading,
         isSignedIn: !!user,
+        isFetching,
         signOut,
         refreshUser,
       }}

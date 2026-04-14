@@ -54,15 +54,15 @@ export const LevelButton = ({
 
   const { mutate, isPending } = useMutation({
     mutationFn: () => startLevelSession(id!),
-    onSuccess: () => {
-      router.push("/level")
-    },
-    onError: (error: any) => {
-      if (error.message === "UPGRADE_REQUIRED") {
-        onProModalOpen?.(true)
-      } else {
-        toast.error("Something went wrong.")
+    onSuccess: (data: any) => {
+      if (data?.error === "UPGRADE_REQUIRED") {
+        onProModalOpen?.(true);
+        return;
       }
+      router.push("/level");
+    },
+    onError: () => {
+      toast.error("Something went wrong.");
     }
   })
   const handleStartClick = () => {

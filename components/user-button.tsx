@@ -11,12 +11,23 @@ import {
 import { LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuth } from "@/components/auth-provider";
+import { Spinner } from './ui/spinner'
 
 export function UserButton() {
-  const { user, signOut } = useAuth();
+  const { user, signOut, isLoaded  } = useAuth();
   // const router = useRouter();
 
+   if (!isLoaded) {
+    return (
+      <div className="flex items-center gap-2">
+         <Spinner className="size-5" />
+      </div>
+    );
+  }
+
   if (!user) return null;
+
+  
 
   const handleSignOut = async () => {
     await signOut();

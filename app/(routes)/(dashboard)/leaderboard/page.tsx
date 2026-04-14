@@ -30,7 +30,7 @@ const LeaderboardPage = () => {
           <div className="relative mb-8 flex flex-col items-center gap-y-4">
             <Image src="/images/leaderboard.svg" alt="Leaderboard" height={90} width={90} />
             <div className="text-center">
-              <h1 className="text-2xl font-bold text-neutral-800">Leaderboard</h1>
+              <h1 className="text-2xl font-bold">Leaderboard</h1>
               <p className="text-muted-foreground">See where you stand among other learners.</p>
             </div>
           </div>

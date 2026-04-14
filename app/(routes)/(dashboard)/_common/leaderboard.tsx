@@ -22,10 +22,10 @@ export const Leaderboard = () => {
 
   return (
     <Card className="px-0 overflow-hidden shadow-sm border-2">
-      <div className="flex items-center justify-between border-b border-border px-4 py-3 bg-neutral-50/50">
+      <div className="flex items-center justify-between border-b border-border px-4 py-3 bg-neutral-50/50 dark:bg-background">
         <div className="flex items-center gap-x-2">
           <Trophy className="h-5 w-5 text-primary" />
-          <span className="text-sm font-extrabold uppercase tracking-wide text-neutral-600">
+          <span className="text-sm font-extrabold uppercase tracking-wide text-neutral-600 dark:text-white">
             Leaderboard
           </span>
         </div>

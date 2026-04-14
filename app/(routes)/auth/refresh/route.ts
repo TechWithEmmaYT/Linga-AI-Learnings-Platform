@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
     finalRedirect = new URL("/learn", request.url);
   }
 
-  const response = NextResponse.redirect(finalRedirect, 307);
+  const response = NextResponse.redirect(finalRedirect);
 
   response.cookies.set(
     AUTH_COOKIE_NAMES.accessToken,

@@ -147,7 +147,7 @@ export async function startLevelSession(levelId: string) {
         .maybeSingle();
 
       if (existingSession) {
-        throw new Error("UPGRADE_REQUIRED");
+        return { success: false, error: "UPGRADE_REQUIRED" };
       }
     }
 
