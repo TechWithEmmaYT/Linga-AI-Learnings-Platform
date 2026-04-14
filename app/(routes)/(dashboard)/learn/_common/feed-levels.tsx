@@ -44,9 +44,8 @@ export const FeedLevels = () => {
             ) : (
               <>
                 <Link href="/courses">
-                  <Button size="icon" variant="ghost" className="text-white hover:bg-white/20">
+                  <Button size="icon" variant="ghost" className="text-white! hover:bg-white/20">
                     <ArrowLeft className="h-5 w-5 mr-2" />
-                    Back
                   </Button>
                 </Link>
                 <div className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">

@@ -20,7 +20,7 @@ export default function CoursesPage() {
     <div className="flex min-h-screen flex-col">
       <Header />
 
-      <main className="flex-1 w-full max-w-7xl mx-auto p-6 md:px-0 md:py-12">
+      <main className="flex-1 w-full  max-w-[912px] mx-auto p-6 md:px-0 md:py-12">
         <h1 className="text-xl sm:text-3xl font-bold text-center mb-8 mt-4">
           I want to learn...
         </h1>

@@ -42,7 +42,7 @@ export function proxy(request: NextRequest) {
       const refreshUrl = request.nextUrl.clone();
       refreshUrl.pathname = "/auth/refresh";
       refreshUrl.search = `?redirect=${redirectTo}`
-      return NextResponse.redirect(refreshUrl)
+      return NextResponse.rewrite(refreshUrl)
     }
     return NextResponse.next();
   }
