@@ -36,7 +36,7 @@ export const FeedLevels = () => {
       <div className="relative flex w-full items-center justify-between rounded-2xl bg-primary p-5 text-primary-foreground shadow-sm border-black/10 transition-all">
 
         <div className="flex flex-col gap-y-1.5">
-          <div className="flex items-center gap-x-3">
+          <div className="flex items-center gap-x-1">
             {isLoading ? (
               <Skeleton className="h-4 w-24 bg-white/20 rounded-lg" />
             ) : (
