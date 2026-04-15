@@ -14,6 +14,7 @@
 If this project helps you, you can support my work by:
 
 * 🟢 [Try Insforge](https://insforge.dev/?utm_source=techwithemma)
+* 💻 [Join our Discord](https://discord.com/invite/KA656GEu)
 * ☕ [Buy Me a Coffee](https://dub.sh/buy-me-coffee)
 * 🎥 [Subscribe on YouTube](https://tinyurl.com/subcribe-to-techwithEmma)
 * 🌟 Star this repository
